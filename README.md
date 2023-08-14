@@ -34,7 +34,7 @@ jobs:
           fetch-depth: 0
 
       - name: Build
-        uses: openwrt/gh-action-sdk@main
+        uses: kollera/gh-action-sdk@main
         env:
           ARCH: ${{ matrix.arch }}
 
