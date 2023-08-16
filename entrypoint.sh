@@ -11,9 +11,10 @@ if [ -n "$KEY_BUILD" ]; then
 else
 	if [ -n "$SIGN_KEY" ]; then
 		echo "using sign key from env"
-		echo "public sign key: $SIGN_KEY_PUB"
 		echo "$SIGN_KEY" > key-build
 		echo "$SIGN_KEY_PUB" > key-build.pub
+		PUB=$(cat key-build.pub)
+		echo "public sign key: $PUB"
 
 	else
 		echo "local build key generated"
