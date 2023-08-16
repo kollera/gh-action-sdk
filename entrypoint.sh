@@ -9,8 +9,15 @@ if [ -n "$KEY_BUILD" ]; then
 	echo "$KEY_BUILD" > key-build
 	SIGNED_PACKAGES="y"
 else
-	./staging_dir/host/bin/usign -G -s ./key-build -p ./key-build.pub -c "Local build key"
-	echo "local build key generated"
+	if [ -n "$SIGN_KEY" ]; then
+		echo "using sign key from env"
+		echo "$SIGN_KEY" > key-build
+		echo "$SIGN_KEY_PUB" > key-build.pub
+
+	else
+		echo "local build key generated"
+		./staging_dir/host/bin/usign -G -s ./key-build -p ./key-build.pub -c "Local build key"
+	fi
 fi
 
 if [ -z "$NO_DEFAULT_FEEDS" ]; then

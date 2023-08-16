@@ -20,6 +20,8 @@ runs:
           --env FEEDNAME \
           --env IGNORE_ERRORS \
           --env KEY_BUILD \
+          --env SIGN_KEY \
+          --env SIGN_KEY_PUB \
           --env NO_DEFAULT_FEEDS \
           --env NO_REFRESH_CHECK \
           --env NO_SHFMT_CHECK \
